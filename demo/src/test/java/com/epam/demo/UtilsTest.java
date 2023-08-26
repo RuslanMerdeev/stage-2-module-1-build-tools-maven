@@ -17,7 +17,7 @@ public class UtilsTest {
 
         @Test
         void ifTheyAllArePositive() {
-            ArrayList<String> numbers = new ArrayList<String>() {{
+            ArrayList<String> numbers = new ArrayList<>() {{
                 add("2.2");
                 add("5");
                 add("9");
@@ -35,7 +35,7 @@ public class UtilsTest {
 
         @Test
         void ifOneOfThemIsNegative() {
-            ArrayList<String> numbers = new ArrayList<String>() {{
+            ArrayList<String> numbers = new ArrayList<>() {{
                 add("2");
                 add("-5");
                 add("9");
@@ -49,7 +49,7 @@ public class UtilsTest {
 
         @Test
         void ifOneOfThemIsZero() {
-            ArrayList<String> numbers = new ArrayList<String>() {{
+            ArrayList<String> numbers = new ArrayList<>() {{
                 add("2");
                 add("0");
                 add("9");
@@ -63,7 +63,7 @@ public class UtilsTest {
 
         @Test
         void ifOneOfThemStartsWithZero() {
-            ArrayList<String> numbers = new ArrayList<String>() {{
+            ArrayList<String> numbers = new ArrayList<>() {{
                 add("05");
             }};
 
@@ -74,7 +74,7 @@ public class UtilsTest {
 
         @Test
         void ifOneOfThemIsNull() {
-            ArrayList<String> numbers = new ArrayList<String>() {{
+            ArrayList<String> numbers = new ArrayList<>() {{
                 add(null);
             }};
 
