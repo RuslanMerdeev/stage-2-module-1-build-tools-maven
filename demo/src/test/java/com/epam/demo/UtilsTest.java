@@ -1,86 +1,75 @@
 package com.epam.demo;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@DisplayName("Utils should")
 public class UtilsTest {
 
-    @Nested
-    class HaveAllPositiveNumbers {
+    @Test
+    public void ifTheyAllArePositive() {
+        ArrayList<String> numbers = new ArrayList<>() {{
+            add("2.2");
+            add("5");
+            add("9");
+            add("17");
+        }};
 
-        @Test
-        void ifTheyAllArePositive() {
-            ArrayList<String> numbers = new ArrayList<>() {{
-                add("2.2");
-                add("5");
-                add("9");
-                add("17");
-            }};
+        boolean got = Utils.isAllPositiveNumbers(numbers);
 
-            boolean got = Utils.isAllPositiveNumbers(numbers);
-
-            assertTrue(got);
-        }
+        assertTrue(got);
     }
 
-    @Nested
-    class NotHaveAllPositiveNumbers {
+    @Test
+    public void ifOneOfThemIsNegative() {
+        ArrayList<String> numbers = new ArrayList<>() {{
+            add("2");
+            add("-5");
+            add("9");
+            add("17");
+        }};
 
-        @Test
-        void ifOneOfThemIsNegative() {
-            ArrayList<String> numbers = new ArrayList<>() {{
-                add("2");
-                add("-5");
-                add("9");
-                add("17");
-            }};
+        boolean got = Utils.isAllPositiveNumbers(numbers);
 
-            boolean got = Utils.isAllPositiveNumbers(numbers);
+        assertFalse(got);
+    }
 
-            assertFalse(got);
-        }
+    @Test
+    public void ifOneOfThemIsZero() {
+        ArrayList<String> numbers = new ArrayList<>() {{
+            add("2");
+            add("0");
+            add("9");
+            add("17");
+        }};
 
-        @Test
-        void ifOneOfThemIsZero() {
-            ArrayList<String> numbers = new ArrayList<>() {{
-                add("2");
-                add("0");
-                add("9");
-                add("17");
-            }};
+        boolean got = Utils.isAllPositiveNumbers(numbers);
 
-            boolean got = Utils.isAllPositiveNumbers(numbers);
+        assertFalse(got);
+    }
 
-            assertFalse(got);
-        }
+    @Test
+    public void ifOneOfThemStartsWithZero() {
+        ArrayList<String> numbers = new ArrayList<>() {{
+            add("05");
+        }};
 
-        @Test
-        void ifOneOfThemStartsWithZero() {
-            ArrayList<String> numbers = new ArrayList<>() {{
-                add("05");
-            }};
+        boolean got = Utils.isAllPositiveNumbers(numbers);
 
-            boolean got = Utils.isAllPositiveNumbers(numbers);
+        assertFalse(got);
+    }
 
-            assertFalse(got);
-        }
+    @Test
+    public void ifOneOfThemIsNull() {
+        ArrayList<String> numbers = new ArrayList<>() {{
+            add(null);
+        }};
 
-        @Test
-        void ifOneOfThemIsNull() {
-            ArrayList<String> numbers = new ArrayList<>() {{
-                add(null);
-            }};
+        boolean got = Utils.isAllPositiveNumbers(numbers);
 
-            boolean got = Utils.isAllPositiveNumbers(numbers);
-
-            assertFalse(got);
-        }
+        assertFalse(got);
     }
 }
